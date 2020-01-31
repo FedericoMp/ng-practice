@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="columns is-mobile">
+    <div class="column is-7">
+      <app-server-input></app-server-input>
+    </div>
+    <div class="column is-5">
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+          <app-server></app-server>
+          <br>
+          <app-alert
+            [text]="serverAlert"
+            [type]="changeAlert()">
+          </app-alert>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

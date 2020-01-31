@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="field has-addons">
+    <div class="control has-icons-left">
+      <input
+        class="input"
+        type="text"
+        placeholder="Add server name..."
+        [(ngModel)]="serverName"> <!-- 2-way-db -->
+        <!-- (input)="setInputName($event)"> -->
+      <span class="icon is-small is-left">
+        <i class="fas fa-server"></i>
+      </span>
+    </div>
+    <div class="control">
+      <button
+        class="button is-primary"
+        [disabled]="!serverName"
+        (click)="onReset($event)">Reset input</button>
+    </div>
+  </div>
+  <div class="content" *ngIf="serverName; else serverMsg">
+    <p>Server created: {{serverName}}</p>
+  </div>
+  <ng-template #serverMsg>
+    <p>{{noServerMsg}}</p>
+  </ng-template>
+
+</div>

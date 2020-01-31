@@ -15,7 +15,6 @@ export class ServersComponent implements OnInit, DoCheck {
   ngOnInit() {}
 
   ngDoCheck() {
-
     setTimeout( () => { this.statusAlert = true; this.serverAlert = 'The server was created'; }, 3000 );
   }
 

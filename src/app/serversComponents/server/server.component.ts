@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 export interface ServerI {
   name: string;
   status: boolean;
-  text: string;
+  text?: string;
 }
 
 @Component({
@@ -14,6 +14,7 @@ export interface ServerI {
     <span class="tag" [ngClass]="statusClasses()">{{serverObj.text}}</span>
   </div>
   `,
+  styles: ['.tags { margin-top: .5rem; }']
 })
 export class ServerComponent implements OnInit {
 
@@ -24,7 +25,7 @@ export class ServerComponent implements OnInit {
     setTimeout(() => { this.serverObj = { name: 'Server 1', status: true, text: 'online' }; }, 3000 );
    }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   statusClasses() {
     return (!this.serverObj.status) ? 'is-danger' : 'is-success';

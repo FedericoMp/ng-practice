@@ -1,0 +1,33 @@
+<nav class="panel">
+  <p class="panel-heading">Numbers component</p>
+  <div class="panel-block">
+    <button
+      (click)="showOdd = !showOdd"
+      class="button is-link is-outlined is-fullwidth">
+      Only show odd numbers
+    </button>
+  </div>
+  <div
+    class="panel-block"
+    *ngIf="showOdd"
+    [ngStyle]="{flexDirection:'column', alignItems:'flex-start'}">
+      <p
+        [ngClass]="{'flex odd': odd % 2 !== 0}"
+        *ngFor="let odd of oddNumbers"
+        appHighlight>
+          {{ odd }}
+      </p>
+  </div>
+  <div
+    class="panel-block"
+    *appUnless="showOdd"
+    [ngStyle]="{flexDirection:'column', alignItems:'flex-start'}">
+      <p
+        [ngClass]="{'flex even': even % 2 === 0}"
+        *ngFor="let even of evenNumbers"
+        appBetterHighlight>
+        {{ even }}
+      </p>
+  </div>
+</nav>
+
