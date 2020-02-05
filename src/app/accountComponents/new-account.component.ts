@@ -48,7 +48,7 @@ export class NewAccountComponent implements OnInit {
   constructor(private accountService: AccountService) {
     this.accounts = this.accountService.getAccounts();
     this.accountService.accountStatus.subscribe(
-      (acc:any) => {
+      (acc: any) => {
         alert(`Status for: ${acc.name}, updated from: ${!acc.status ? 'Online' : 'Offline' } to: ${acc.status ? 'Online' : 'Offline' }`);
       });
   }

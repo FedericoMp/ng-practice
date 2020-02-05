@@ -5,6 +5,7 @@ import { AccountI } from '../models/acount.interface';
 @Component({
   selector: 'app-account-table',
   template: `
+   <p class="subtitle">Accounts table:</p>
     <table class="table is-fullwidth is-striped is-bordered">
       <thead>
         <tr>

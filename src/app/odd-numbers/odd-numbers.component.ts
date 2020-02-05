@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-odd-numbers',
@@ -11,8 +12,15 @@ export class OddNumbersComponent implements OnInit {
   evenNumbers = [2, 4];
   showOdd = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
+  goToUrlQuery(id: number) {
+    this.router.navigate(
+      ['/url-query', id, 'edit'],
+      { queryParams: {allowEdit: '1', updateQuery: true},
+        fragment: 'loading' }
+    );
+  }
 }

@@ -9,6 +9,7 @@ export interface ServerI {
 @Component({
   selector: 'app-server',
   template: `
+  <p class="subtitle">Servers</p>
   <div class="tags has-addons">
     <span class="tag">{{serverObj.name}}</span>
     <span class="tag" [ngClass]="statusClasses()">{{serverObj.text}}</span>

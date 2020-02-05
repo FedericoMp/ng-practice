@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter,
-  ContentChild, ElementRef, AfterContentInit, ContentChildren, QueryList } from '@angular/core';
+  ContentChild, ElementRef, AfterContentInit, ContentChildren, QueryList, Host, Optional } from '@angular/core';
+import { ParentComponent } from './parent.component';
 
 @Component({
   selector: 'app-child',
@@ -16,12 +17,13 @@ import { Component, OnInit, Input, Output, EventEmitter,
 export class ChildComponent implements OnInit, AfterContentInit {
 
   @Input() fromParent: any;
-  @Output() fromChild = new EventEmitter();
   @ContentChild('parentProjContentBody', {static: true}) parentProjContentBody: ElementRef;
   @ContentChild('parentProjContentFooter', {static: true}) parentProjContentFooter: ElementRef;
   @ContentChildren('contentChildrenBox') contentChildrenBoxList: QueryList<any>;
 
-  constructor() { }
+  constructor(
+    @Optional() @Host() private parencCompApi: ParentComponent
+  ) { console.log(this.parencCompApi); }
 
   ngOnInit() { }
 

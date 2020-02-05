@@ -1,11 +1,27 @@
 <nav class="panel">
-  <p class="panel-heading">Numbers component</p>
+  <p class="panel-heading">Directives and Events</p>
   <div class="panel-block">
     <button
       (click)="showOdd = !showOdd"
       class="button is-link is-outlined is-fullwidth">
       Only show odd numbers
     </button>
+  </div>
+  <div class="panel-block">
+    <!-- Query params passed by method -->
+    <button
+      (click)="goToUrlQuery(1)"
+      class="button is-link is-outlined is-fullwidth">
+      Go to with method query
+    </button>
+    <!-- Query params passed by routerLink directives -->
+    <a
+      [routerLink]="['/url-query', 5, 'edit']"
+      [queryParams]="{allowEddit: '1', updatedQuery: true}"
+      [fragment]="'loading'"
+      class="button is-outlined is-fullwidth"><!-- fragment = #loading (at end) -->
+      Go to with query
+    </a>
   </div>
   <div
     class="panel-block"
@@ -30,4 +46,3 @@
       </p>
   </div>
 </nav>
-
