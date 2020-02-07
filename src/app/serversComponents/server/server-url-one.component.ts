@@ -40,7 +40,7 @@ export class ServerUrlOneComponent implements OnInit, OnDestroy {
       // the parameters, Angular can't detect this change because we are on
       // the same component and it initializated so...(*)
       // tslint:disable-next-line: whitespace
-      const paramId =+ this.route.snapshot.params.id;
+      const paramId = +this.route.snapshot.params.id;
       this.user = this.users.find(u => u.id === paramId);
       console.log('Router snapshot: ' + JSON.stringify(this.user));
 
@@ -49,7 +49,7 @@ export class ServerUrlOneComponent implements OnInit, OnDestroy {
       this.paramSub = this.route.params.subscribe(
         (params: Params) => {
           // tslint:disable-next-line: whitespace
-          const paramToNum =+ params.id;
+          const paramToNum = +params.id;
           this.user = this.users.find(u => u.id === paramToNum);
           console.log('Router Params Observable Subscription: '
                        + JSON.stringify(this.user));
